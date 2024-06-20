@@ -1,4 +1,7 @@
 import requests
+from datetime import datetime
+
+#link: https://pixe.la/v1/users/charvisgood/graphs/graphical24.html
 
 USERNAME = "charvisgood"
 TOKEN = "fefergergeggrfrg33"
@@ -12,8 +15,8 @@ u_params = {
     "notMinor": "yes",
 
 }
-# response=requests.post(url=pixela_endpoint, json=u_params)
-# print(response.text)
+#response=requests.post(url=pixela_endpoint, json=u_params)
+#print(response.text)
 graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
 
 graph_co = {
@@ -28,13 +31,15 @@ graph_co = {
 headers = {
     "X-USER-TOKEN": TOKEN
 }
-# response=requests.post(url=graph_endpoint, json=graph_co, headers=headers)
+#response=requests.post(url=graph_endpoint, json=graph_co, headers=headers)
 
-# print(response.text)
+#print(response.text)
 pixel_crea_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
+today = datetime(year=2024, month=6, day=4)
+print(today.strftime("%Y%m%d"))
 pixel_data = {
-    "date": "20240621",
-    "quantity": "4.5",
+    "date": today.strftime("%Y%m%d"),
+    "quantity": "145",
 }
 response = requests.post(url=pixel_crea_endpoint, json=pixel_data, headers=headers)
 
